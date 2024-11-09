@@ -1,0 +1,453 @@
+[
+    {
+        "id": "a590b2aff7a0083b",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "03ba7e15f5b17d38",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "91c5722bea0a5bd1",
+        "type": "deepstack-server",
+        "proto": "http",
+        "host": "ai-server",
+        "port": "32168",
+        "version": "v1",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "c53d4d28779deebf",
+        "type": "exec",
+        "z": "a590b2aff7a0083b",
+        "command": "ffmpeg -y -i rtsp://ubnt:ubnt@192.168.178.106:554/s0 -vframes 1 -f image2pipe -vcodec png -",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 780,
+        "y": 160,
+        "wires": [
+            [
+                "69fd65c2125d9b95",
+                "c7ef6d0d25c840e7"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "ccfee27a4b470d74",
+        "type": "inject",
+        "z": "a590b2aff7a0083b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 160,
+        "wires": [
+            [
+                "c53d4d28779deebf"
+            ]
+        ]
+    },
+    {
+        "id": "956d799606bce11b",
+        "type": "rtsp2mjpeg",
+        "z": "a590b2aff7a0083b",
+        "url": "rtsp://192.168.178.106:554/s0",
+        "username": "ubnt",
+        "password": "ubnt",
+        "rate": "1",
+        "quality": "",
+        "resolution": "1920x1080",
+        "x": 410,
+        "y": 300,
+        "wires": [
+            [
+                "70f758b2060ffb18",
+                "c7ef6d0d25c840e7"
+            ]
+        ]
+    },
+    {
+        "id": "816137247400a2df",
+        "type": "inject",
+        "z": "a590b2aff7a0083b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "start_conversion",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 260,
+        "wires": [
+            [
+                "956d799606bce11b"
+            ]
+        ]
+    },
+    {
+        "id": "70f758b2060ffb18",
+        "type": "debug",
+        "z": "a590b2aff7a0083b",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "bb4f9c3e0d2dafa2",
+        "type": "inject",
+        "z": "a590b2aff7a0083b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "stop_conversion",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 320,
+        "wires": [
+            [
+                "956d799606bce11b"
+            ]
+        ]
+    },
+    {
+        "id": "c7ef6d0d25c840e7",
+        "type": "image viewer",
+        "z": "a590b2aff7a0083b",
+        "name": "",
+        "width": "300",
+        "data": "payload",
+        "dataType": "msg",
+        "active": true,
+        "x": 1570,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "50e1d5282c9bdc2f",
+        "type": "http request",
+        "z": "a590b2aff7a0083b",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "ai-server:32168/v1/vision/detection",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 1670,
+        "y": 180,
+        "wires": [
+            [
+                "73057af8c3459e31"
+            ]
+        ]
+    },
+    {
+        "id": "39969441f14fcace",
+        "type": "debug",
+        "z": "a590b2aff7a0083b",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1980,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "edad7657147bd505",
+        "type": "file in",
+        "z": "a590b2aff7a0083b",
+        "name": "",
+        "filename": "/data/sample/sample.jpg",
+        "filenameType": "str",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 930,
+        "y": 460,
+        "wires": [
+            [
+                "c7ef6d0d25c840e7",
+                "69fd65c2125d9b95"
+            ]
+        ]
+    },
+    {
+        "id": "73ddd73875b7e8d1",
+        "type": "inject",
+        "z": "a590b2aff7a0083b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 340,
+        "y": 480,
+        "wires": [
+            [
+                "edad7657147bd505"
+            ]
+        ]
+    },
+    {
+        "id": "69fd65c2125d9b95",
+        "type": "function",
+        "z": "a590b2aff7a0083b",
+        "name": "form request",
+        "func": "msg.headers = {\n    \"content-type\" : 'multipart/form-data'\n    };\nlet databuffer = msg.payload;\n\nmsg.payload = {\n    \"KEY\": {\n        \"value\": databuffer,\n        \"options\": {\n            \"filename\": \"myfile.png\",\n            \"min_confidence\": 0.4\n        }\n    }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1410,
+        "y": 180,
+        "wires": [
+            [
+                "50e1d5282c9bdc2f"
+            ]
+        ]
+    },
+    {
+        "id": "51562dafaf6ca481",
+        "type": "deepstack-object-detection",
+        "z": "a590b2aff7a0083b",
+        "name": "",
+        "server": "91c5722bea0a5bd1",
+        "confidence": 80,
+        "drawPredictions": false,
+        "printLabel": false,
+        "outlineColor": "pink",
+        "custom": "",
+        "filters": [],
+        "outputs": 1,
+        "x": 1680,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "73057af8c3459e31",
+        "type": "json",
+        "z": "a590b2aff7a0083b",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1830,
+        "y": 180,
+        "wires": [
+            [
+                "39969441f14fcace",
+                "6674d5675e743bf7"
+            ]
+        ]
+    },
+    {
+        "id": "690cc28670c38b8f",
+        "type": "pushover",
+        "z": "a590b2aff7a0083b",
+        "name": "node red",
+        "device": "",
+        "title": "ai-doorbell",
+        "priority": "0",
+        "sound": "bike",
+        "url": "https://google.com",
+        "url_title": "http://google.com",
+        "html": false,
+        "x": 2060,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "6674d5675e743bf7",
+        "type": "function",
+        "z": "a590b2aff7a0083b",
+        "name": "function 1",
+        "func": "let predictions = msg.payload.predictions;\n\n// Check if there's any object with label \"person\"\nlet personDetected = predictions.some(prediction => prediction.label === \"person\");\n\nif (personDetected) {\n    msg.payload = \"person detected\";\n} else {\n    msg.payload = \"no person detected\";\n}\n\nmsg.url = \"http://google.com\"\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1920,
+        "y": 260,
+        "wires": [
+            [
+                "690cc28670c38b8f"
+            ]
+        ]
+    },
+    {
+        "id": "f5a6fe5512500653",
+        "type": "inject",
+        "z": "a590b2aff7a0083b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1820,
+        "y": 360,
+        "wires": [
+            [
+                "690cc28670c38b8f"
+            ]
+        ]
+    },
+    {
+        "id": "5cb04348.8b9e2c",
+        "type": "function",
+        "z": "03ba7e15f5b17d38",
+        "name": "",
+        "func": "msg.headers = {\n    \"content-type\" : 'multipart/form-data'\n    };\nlet databuffer = msg.payload;\n\nmsg.payload = {\n    \"KEY\": {\n        \"value\": databuffer,\n        \"options\": {\n            \"filename\": \"myfile.png\"\n        }\n    }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 220,
+        "wires": [
+            [
+                "f04784b6.9e3078"
+            ]
+        ]
+    },
+    {
+        "id": "f04784b6.9e3078",
+        "type": "http request",
+        "z": "03ba7e15f5b17d38",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": false,
+        "url": "myserver.mybluemix.net/file/input",
+        "tls": "",
+        "proxy": "",
+        "authType": "basic",
+        "x": 640,
+        "y": 220,
+        "wires": [
+            [
+                "76de17b4.dc2de8"
+            ]
+        ]
+    },
+    {
+        "id": "76de17b4.dc2de8",
+        "type": "debug",
+        "z": "03ba7e15f5b17d38",
+        "name": "File has been sent",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 860,
+        "y": 220,
+        "wires": []
+    }
+]

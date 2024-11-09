@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  nodered:
+    build: .
+    container_name: node-red-with-ffmpeg
+    ports:
+      - "1880:1880"
+    volumes:
+      - ./data:/data   # Persist Node-RED data (flows, settings, etc.)
+    environment:
+      - TZ=Australia/Perth  # Set your timezone here
+    restart: unless-stopped
+
+  codeproject-ai-server:
+    image: codeproject/ai-server:gpu
+    container_name: ai-server
+    ports:
+      - 32168:32168
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    volumes:
+      - C:\ProgramData\CodeProject\AI\docker\data:/etc/codeproject/ai
+      - C:\ProgramData\CodeProject\AI\docker\modules:/app/modules
+    restart: unless-stopped
