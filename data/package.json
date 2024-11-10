@@ -1,0 +1,16 @@
+{
+    "name": "node-red-project",
+    "description": "A Node-RED Project",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "@bartbutenaers/node-red-rtsp-to-mjpeg": "~1.0.0",
+        "@flowfuse/node-red-dashboard": "~1.19.1",
+        "node-red-contrib-deepstack": "~0.3.0",
+        "node-red-contrib-image-tools": "~2.1.1",
+        "node-red-contrib-string": "~1.0.0",
+        "node-red-dashboard": "~3.6.5",
+        "node-red-node-base64": "~0.3.0",
+        "node-red-node-pushover": "~0.2.2"
+    }
+}

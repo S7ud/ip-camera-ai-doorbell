@@ -25,6 +25,182 @@
         "rejectUnauthorized": true
     },
     {
+        "id": "a78a9b2318c0d3b0",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "showPageTitle": true,
+        "navigationStyle": "default",
+        "titleBarStyle": "default"
+    },
+    {
+        "id": "9881017039ea80ec",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "f01b1cd2cee3eb70",
+        "type": "ui-page",
+        "name": "Page 1",
+        "ui": "a78a9b2318c0d3b0",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "9881017039ea80ec",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": 0,
+                "cols": 3
+            },
+            {
+                "name": "Tablet",
+                "px": 576,
+                "cols": 6
+            },
+            {
+                "name": "Small Desktop",
+                "px": 768,
+                "cols": 9
+            },
+            {
+                "name": "Desktop",
+                "px": 1024,
+                "cols": 12
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "c40344b0.c82658",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "39f5181b32391884",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
         "id": "c53d4d28779deebf",
         "type": "exec",
         "z": "a590b2aff7a0083b",
@@ -40,8 +216,8 @@
         "y": 160,
         "wires": [
             [
-                "69fd65c2125d9b95",
-                "c7ef6d0d25c840e7"
+                "c7ef6d0d25c840e7",
+                "20eefaaad969c605"
             ],
             [],
             []
@@ -83,11 +259,11 @@
         "url": "rtsp://192.168.178.106:554/s0",
         "username": "ubnt",
         "password": "ubnt",
-        "rate": "1",
+        "rate": "10",
         "quality": "",
         "resolution": "1920x1080",
-        "x": 410,
-        "y": 300,
+        "x": 490,
+        "y": 280,
         "wires": [
             [
                 "70f758b2060ffb18",
@@ -112,7 +288,7 @@
         "repeat": "",
         "crontab": "",
         "once": false,
-        "onceDelay": 0.1,
+        "onceDelay": "5",
         "topic": "start_conversion",
         "payload": "",
         "payloadType": "date",
@@ -133,7 +309,8 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
         "x": 560,
@@ -217,10 +394,11 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1980,
+        "x": 2200,
         "y": 180,
         "wires": []
     },
@@ -236,12 +414,12 @@
         "sendError": false,
         "encoding": "none",
         "allProps": false,
-        "x": 930,
-        "y": 460,
+        "x": 530,
+        "y": 480,
         "wires": [
             [
                 "c7ef6d0d25c840e7",
-                "69fd65c2125d9b95"
+                "20eefaaad969c605"
             ]
         ]
     },
@@ -266,7 +444,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 340,
+        "x": 240,
         "y": 480,
         "wires": [
             [
@@ -286,7 +464,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1410,
+        "x": 1450,
         "y": 180,
         "wires": [
             [
@@ -307,8 +485,8 @@
         "custom": "",
         "filters": [],
         "outputs": 1,
-        "x": 1680,
-        "y": 240,
+        "x": 1600,
+        "y": 280,
         "wires": [
             []
         ]
@@ -325,8 +503,8 @@
         "y": 180,
         "wires": [
             [
-                "39969441f14fcace",
-                "6674d5675e743bf7"
+                "6674d5675e743bf7",
+                "9c8e26aff9b30cd8"
             ]
         ]
     },
@@ -351,7 +529,7 @@
         "type": "function",
         "z": "a590b2aff7a0083b",
         "name": "function 1",
-        "func": "let predictions = msg.payload.predictions;\n\n// Check if there's any object with label \"person\"\nlet personDetected = predictions.some(prediction => prediction.label === \"person\");\n\nif (personDetected) {\n    msg.payload = \"person detected\";\n} else {\n    msg.payload = \"no person detected\";\n}\n\nmsg.url = \"http://google.com\"\n\nreturn msg;\n",
+        "func": "let predictions = msg.payload.predictions;\n\n// Check if there's any object with label \"person\"\nlet personDetected = predictions.some(prediction => prediction.label === \"person\");\n\nif (personDetected) {\n    msg.payload = \"person detected\";\n    msg.url = \"http://192.168.178.185/dashboard/page1\"\n    msg.attachment = flow.get(\"current_image\");\n    node.send(msg);\n};\n// } else {\n//     msg.payload = \"no person detected\";\n// }\n\n// msg.url = \"http://192.168.178.185/dashboard/page1\"\n\n// return msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -362,7 +540,8 @@
         "y": 260,
         "wires": [
             [
-                "690cc28670c38b8f"
+                "690cc28670c38b8f",
+                "39969441f14fcace"
             ]
         ]
     },
@@ -396,58 +575,230 @@
         ]
     },
     {
-        "id": "5cb04348.8b9e2c",
-        "type": "function",
-        "z": "03ba7e15f5b17d38",
+        "id": "9374a42c1512b5a4",
+        "type": "link out",
+        "z": "a590b2aff7a0083b",
+        "name": "link out 1",
+        "mode": "link",
+        "links": [
+            "389f26d427322623"
+        ],
+        "x": 1445,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "0c94c08c98bc8ab5",
+        "type": "base64",
+        "z": "a590b2aff7a0083b",
         "name": "",
-        "func": "msg.headers = {\n    \"content-type\" : 'multipart/form-data'\n    };\nlet databuffer = msg.payload;\n\nmsg.payload = {\n    \"KEY\": {\n        \"value\": databuffer,\n        \"options\": {\n            \"filename\": \"myfile.png\"\n        }\n    }\n}\n\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 480,
-        "y": 220,
+        "action": "",
+        "property": "payload",
+        "x": 1280,
+        "y": 780,
         "wires": [
             [
-                "f04784b6.9e3078"
+                "6563d8715af4cb06"
             ]
         ]
     },
     {
-        "id": "f04784b6.9e3078",
-        "type": "http request",
-        "z": "03ba7e15f5b17d38",
+        "id": "826392c510ae4932",
+        "type": "change",
+        "z": "a590b2aff7a0083b",
         "name": "",
-        "method": "POST",
-        "ret": "txt",
-        "paytoqs": false,
-        "url": "myserver.mybluemix.net/file/input",
-        "tls": "",
-        "proxy": "",
-        "authType": "basic",
-        "x": 640,
-        "y": 220,
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "camera.jpg",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 990,
+        "y": 760,
         "wires": [
             [
-                "76de17b4.dc2de8"
+                "0c94c08c98bc8ab5"
             ]
         ]
     },
     {
-        "id": "76de17b4.dc2de8",
+        "id": "e52516f093084d35",
         "type": "debug",
-        "z": "03ba7e15f5b17d38",
-        "name": "File has been sent",
+        "z": "a590b2aff7a0083b",
+        "name": "debug 9",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "true",
         "targetType": "full",
-        "x": 860,
-        "y": 220,
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1080,
+        "y": 600,
         "wires": []
+    },
+    {
+        "id": "6563d8715af4cb06",
+        "type": "string",
+        "z": "a590b2aff7a0083b",
+        "name": "Get file type from file name",
+        "methods": [
+            {
+                "name": "getRightMost",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "."
+                    }
+                ]
+            }
+        ],
+        "prop": "filename",
+        "propout": "filetype",
+        "object": "msg",
+        "objectout": "msg",
+        "x": 1620,
+        "y": 720,
+        "wires": [
+            [
+                "fcf061d4cc732e2e"
+            ]
+        ]
+    },
+    {
+        "id": "fcf061d4cc732e2e",
+        "type": "change",
+        "z": "a590b2aff7a0083b",
+        "name": "Add the file type to the mimetype, add to image content",
+        "rules": [
+            {
+                "t": "set",
+                "p": "mimetype",
+                "pt": "msg",
+                "to": "\"data:image/\"&msg.filetype&\";base64,\"",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "output",
+                "pt": "msg",
+                "to": "msg.mimetype&msg.payload",
+                "tot": "jsonata"
+            },
+            {
+                "t": "move",
+                "p": "output",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2000,
+        "y": 740,
+        "wires": [
+            [
+                "3bf4c71150bd0524"
+            ]
+        ]
+    },
+    {
+        "id": "3bf4c71150bd0524",
+        "type": "ui-template",
+        "z": "a590b2aff7a0083b",
+        "group": "",
+        "page": "",
+        "ui": "a78a9b2318c0d3b0",
+        "name": "Display image",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n    <!-- Teleport the image to the #app-bar-title area when mounted -->\n    <!-- <Teleport v-if=\"mounted\" to=\"#app-bar-title\">\n        <img :src=\"msg.payload\" style=\"height: 32px;\" />\n    </Teleport> -->\n    <div>\n        <img :src=\"msg.payload\" style=\"width: 800px; height: 600px;\" />\n    <!-- <img ng-src=\"msg.payload\" style=\"width: 569px; height: 197px;\" /> -->\n    </div>\n</template>\n\n<script>\n    export default {\n        data() {\n            return {\n                mounted: false\n            }\n        },\n        mounted() {\n            // Set mounted to true when the component is mounted\n            this.mounted = true\n        }\n    }\n</script>",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "widget:ui",
+        "className": "",
+        "x": 2300,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "199691be678782fc",
+        "type": "debug",
+        "z": "a590b2aff7a0083b",
+        "name": "debug 10",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1270,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "9c8e26aff9b30cd8",
+        "type": "debug",
+        "z": "a590b2aff7a0083b",
+        "name": "debug 11",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1930,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "20eefaaad969c605",
+        "type": "change",
+        "z": "a590b2aff7a0083b",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "current_image",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1240,
+        "y": 180,
+        "wires": [
+            [
+                "69fd65c2125d9b95",
+                "199691be678782fc"
+            ]
+        ]
     }
 ]
